@@ -1,13 +1,7 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  Linking,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -17,17 +11,14 @@ import {
   View,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors, Header} from 'react-native/Libraries/NewAppScreen';
 
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
+
+const repositoryURL = 'https://github.com/Manil-S-Malla/Learning-React-Native';
+const developerEmail = 'manilsmalla@gmail.com';
 
 function Section({children, title}: SectionProps): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -73,23 +64,44 @@ function App(): JSX.Element {
         style={backgroundStyle}>
         <Header />
         <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
+          style={[
+            styles.containerBody,
+            {
+              backgroundColor: isDarkMode ? Colors.black : Colors.white,
+            },
+          ]}>
+          <Section title="Learning React Native">
+            This is an app which contains code I wrote while{' '}
+            <Text style={styles.highlight}>Learning React Native</Text>.{'\n'}
+            It is comprised of various different apps that highlight various
+            different aspects of working wiith React Native.
           </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
+          <Section title="Different Aspects">
+            Different branches of the repository containing this app highlight
+            different aspects of working with React Native. They may even
+            contain entirely different apps.
           </Section>
-          <Section title="Debug">
-            <DebugInstructions />
+          <Section title="Project Repository">
+            You can checkout the repository for this project at{' '}
+            <Text
+              style={styles.hyperlink}
+              onPress={() => {
+                Linking.openURL(repositoryURL);
+              }}>
+              {repositoryURL}
+            </Text>
+            .
           </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
+          <Section title="Find me at">
+            You can find me at {'\n'}
+            <Text
+              style={styles.hyperlink}
+              onPress={() => {
+                Linking.openURL(developerEmail);
+              }}>
+              {developerEmail}
+            </Text>
           </Section>
-          <LearnMoreLinks />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -110,8 +122,16 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '400',
   },
+  containerBody: {
+    paddingBottom: 30,
+  },
   highlight: {
     fontWeight: '700',
+  },
+  hyperlink: {
+    color: '#0070E0',
+    fontStyle: 'italic',
+    textDecorationLine: 'underline',
   },
 });
 
