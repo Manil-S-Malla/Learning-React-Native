@@ -92,6 +92,13 @@ android {
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
+
+            // Set custom names for Debug APKs.
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "Learning React Native Debug ${variant.versionName}.apk"
+                }
+            }
         }
         release {
             // Caution! In production, you need to generate your own keystore file.
@@ -99,6 +106,13 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+
+            // Set custom names for Release AABs.
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "Learning React Native ${variant.versionName}.apk"
+                }
+            }
         }
     }
 }
