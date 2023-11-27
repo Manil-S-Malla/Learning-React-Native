@@ -1,5 +1,6 @@
 package com.learning_react_native;
 
+import android.os.Bundle; // Additional configuration required by react-native-screens.
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
@@ -14,6 +15,12 @@ public class MainActivity extends ReactActivity {
   @Override
   protected String getMainComponentName() {
     return "Learning_React_Native";
+  }
+
+  // Additional configuration required by react-native-screens.
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(null);
   }
 
   /**
