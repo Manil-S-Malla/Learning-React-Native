@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler'; // Additional configuration required by react-native-gesture-handler.
 import React from 'react';
 import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
